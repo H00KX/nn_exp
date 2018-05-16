@@ -39,14 +39,12 @@ INT32 Usage()
 int main(int argc, char *argv[])
 {
     if (PIN_Init(argc, argv)) return Usage();
-    printf("main initialized\n");
     trace = fopen("my_mem_access_count.out", "w");
 
 
     INS_AddInstrumentFunction(Instruction, 0);
 
     PIN_AddFiniFunction(Fini, 0);
-    printf("Finished\n");
 
     // Never returns
     PIN_StartProgram();
