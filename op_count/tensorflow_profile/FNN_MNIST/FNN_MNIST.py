@@ -53,6 +53,7 @@ if __name__ == "__main__":
 	train_op, loss_op = my_fnn.train()
 	test_op = my_fnn.test()
 
+	# writer = tf.summary.FileWriter("./tb_out",tf.get_default_graph())
 	with tf.Session() as sess:
 		sess.run(tf.global_variables_initializer())
 		step = 0
@@ -66,3 +67,4 @@ if __name__ == "__main__":
 				break
 
 		print("accuracy: %f" % sess.run(test_op))
+	# writer.close()

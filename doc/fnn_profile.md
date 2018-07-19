@@ -91,15 +91,15 @@ Fill			62.72KB (19.39%, 19.39%),	2us (0.18%, 0.18%),	0us (0.00%, 0.00%), 		2us (
 
 ### Visualize  
 ```python
-	tf.profiler.profile(
-		tf.get_default_graph(),
-			run_meta=run_metadata,
-			cmd='graph',
-			options=tf.profiler.ProfileOptionBuilder(
-				tf.profiler.ProfileOptionBuilder.time_and_memory())
-				.with_step(0).with_timeline_output('./test.out')
-				.build()
-	)
+tf.profiler.profile(
+	tf.get_default_graph(),
+		run_meta=run_metadata,
+		cmd='graph',
+		options=tf.profiler.ProfileOptionBuilder(
+			tf.profiler.ProfileOptionBuilder.time_and_memory())
+			.with_step(0).with_timeline_output('./test.out')
+			.build()
+)
 ```
 op view doesn't support timeline yet. Consider graph/scope/code view.
 Open a Chrome Browser, type URL `chrome://tracing`, and load the json file.
